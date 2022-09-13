@@ -1,1 +1,21 @@
-<p>product-details works!</p>
+<div class="container">
+  <mat-card class="example-card">
+    <mat-card-title>{{product.title}}</mat-card-title>
+    <mat-card-subtitle>Product category</mat-card-subtitle>
+    <img class="image" mat-card-image src="{{product.image}}"/>
+      <mat-card-content>
+        <p>Details about the product: </p>
+        <p>Price:  {{product.price | currency: "EUR"}}</p>
+        <p>Ingredients:  </p>
+        <p>Water:  {{product.ingredients.water}}</p>
+        <p>Tonic:  {{product.ingredients.tonic}}</p>
+        <p>Humor:  {{product.ingredients.humor}}</p>
+        <p>Fun:  {{product.ingredients.fun}}</p>
+        <p>Other:  {{product.ingredients.other}}</p>
+      </mat-card-content>
+    <mat-card-actions>
+      <button class="button" mat-stroked-button routerLink="">Add to basket</button>
+      <button class="button" mat-stroked-button [routerLink]="['/product', product.id]">More details</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
