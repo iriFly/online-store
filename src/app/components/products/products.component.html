@@ -10,7 +10,7 @@
     </mat-card-content>
     <mat-card-actions>
       <button class="button" mat-stroked-button routerLink="">Add to basket</button>
-      <button class="button" mat-stroked-button routerLink="">More details</button>
+      <button class="button" mat-stroked-button [routerLink]="['/product', product.id]">More details</button>
     </mat-card-actions>
   </mat-card>
 </div>
