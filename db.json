@@ -1,0 +1,46 @@
+{
+  "products": [
+
+  {
+    "id": 1,
+    "title": "Product #1",
+    "price": "10",
+    "image": "assets/images/product.jpg",
+    "ingredients": {
+      "water": "100%",
+      "tonic": "1%",
+      "humor": "99%",
+      "fun": "0%",
+      "other": "0%"
+    }
+  },
+
+  {
+    "id": 2,
+    "title": "Product #2",
+    "price": "20",
+    "image": "assets/images/product.jpg",
+    "ingredients": {
+      "water": "100%",
+      "tonic": "1%",
+      "humor": "99%",
+      "fun": "0%",
+      "other": "0%"
+    }
+  },
+
+  {
+    "id": 3,
+    "title": "Product #3",
+    "price": "30",
+    "image": "assets/images/product.jpg",
+    "ingredients": {
+      "water": "100%",
+      "tonic": "1%",
+      "humor": "99%",
+      "fun": "0%",
+      "other": "0%"
+    }
+  }
+  ]
+}
