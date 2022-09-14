@@ -16,15 +16,13 @@
     {
       "id": 2,
       "title": "Product #2",
-      "price": "20",
+      "price": "30",
       "image": "assets/images/product.jpg",
-      "ingredients": {
-        "water": "100%",
-        "tonic": "1%",
-        "humor": "99%",
-        "fun": "0%",
-        "other": "0%"
-      }
+      "water": "",
+      "tonic": "",
+      "humor": "",
+      "fun": "",
+      "other": ""
     },
     {
       "id": 3,
@@ -38,6 +36,28 @@
         "fun": "0%",
         "other": "0%"
       }
+    },
+    {
+      "id": 4,
+      "title": "",
+      "price": "",
+      "image": "assets/images/product.jpg",
+      "water": "",
+      "tonic": "",
+      "humor": "",
+      "fun": "",
+      "other": ""
+    },
+    {
+      "id": 5,
+      "title": "attempt1",
+      "price": "20",
+      "image": "assets/images/product.jpg",
+      "water": "2",
+      "tonic": "30",
+      "humor": "100",
+      "fun": "2",
+      "other": "0"
     }
   ]
 }

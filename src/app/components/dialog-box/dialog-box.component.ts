@@ -9,28 +9,36 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class DialogBoxComponent implements OnInit {
 
-  //reactive form creation
-  myForm: FormGroup = new FormGroup({
-    title: new FormControl(''),
-    price: new FormControl(''),
-    water: new FormControl(''),
-    tonic: new FormControl(''),
-    humor: new FormControl(''),
-    fun: new FormControl(''),
-    other: new FormControl(''),
-  });
-
   constructor(
     public dialogRef: MatDialogRef<DialogBoxComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-  ) {}
+  ) {
+    if (this.data) this.isNew = false;
+
+  }
+
+    //reactive form creation
+    myForm: FormGroup = new FormGroup({
+      //we compare the id in de db and if the id exists we keep that id and if not we set id to null (this is the dialogbox to edit or delete the product)
+      id: new FormControl(this.data?.id ?? null),
+      title: new FormControl(this.data?.title ?? ''),
+      price: new FormControl(this.data?.price ?? ''),
+      water: new FormControl(this.data?.water ?? ''),
+      tonic: new FormControl(this.data?.tonic ?? ''),
+      humor: new FormControl(this.data?.humor ?? ''),
+      fun: new FormControl(this.data?.fun ?? ''),
+      other: new FormControl(this.data?.other ?? ''),
+    });
+
+    isNew: boolean = true;
 
   onNoClick(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(null);
   }
 
   onSubmit(){
     this.data ={
+      id: this.myForm.value.id,
       title: this.myForm.value.title,
       price: this.myForm.value.price,
       image: "assets/images/product.jpg",

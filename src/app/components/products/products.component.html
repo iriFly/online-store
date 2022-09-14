@@ -19,7 +19,7 @@
       <button class="button" mat-stroked-button mat-button [matMenuTriggerFor]="menu">Edit</button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="deleteItem(product.id)">Delete</button>
-        <button mat-menu-item>Update</button>
+        <button mat-menu-item (click)="openDialog(product)">Update</button>
       </mat-menu>
     </mat-card-actions>
 
