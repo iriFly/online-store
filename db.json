@@ -58,6 +58,45 @@
       "humor": "100",
       "fun": "2",
       "other": "0"
+    },
+    {
+      "id": 6,
+      "title": "a",
+      "price": "a",
+      "image": "assets/images/product.jpg",
+      "water": "a",
+      "tonic": "a",
+      "humor": "a",
+      "fun": "a",
+      "other": "a"
+    }
+  ],
+  "basket": [
+    {
+      "id": 6,
+      "title": "a",
+      "price": "a",
+      "image": "assets/images/product.jpg",
+      "water": "a",
+      "tonic": "a",
+      "humor": "a",
+      "fun": "a",
+      "other": "a",
+      "quantity": 1
+    },
+    {
+      "id": 3,
+      "title": "Product #3",
+      "price": "30",
+      "image": "assets/images/product.jpg",
+      "ingredients": {
+        "water": "100%",
+        "tonic": "1%",
+        "humor": "99%",
+        "fun": "0%",
+        "other": "0%"
+      },
+      "quantity": 17
     }
   ]
 }

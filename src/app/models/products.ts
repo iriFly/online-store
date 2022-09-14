@@ -4,6 +4,7 @@ export interface IProducts {
   price: string,
   image?: string,
   ingredients: IProductsIngred;
+  quantity: number;
 }
 
 export interface IProductsIngred {

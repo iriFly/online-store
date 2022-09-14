@@ -12,14 +12,16 @@ import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
+
+  constructor(private ProductsService: ProductsService, public dialog: MatDialog) { }
+
   products: IProducts[];
   productsSubscription: Subscription;
+  basket: IProducts[];
+  basketSubscription: Subscription;
 
   canEdit: boolean = false;
   canView: boolean = false;
-
-
-  constructor(private ProductsService: ProductsService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
 
@@ -29,6 +31,33 @@ export class ProductsComponent implements OnInit {
     this.productsSubscription = this.ProductsService.getProducts().subscribe((data) => {
       this.products = data;
     });
+
+    this.basketSubscription = this.ProductsService.getProductFromBasket().subscribe((data) => {
+      this.products = data;
+    })
+  }
+
+  addToBasket(product: IProducts) {
+    product.quantity = 1;
+    let findItem;
+
+    if (this.basket.length > 0) {
+      findItem = this.basket.find((item) => item.id === product.id)
+      if (findItem) this.updateToBasket(findItem)
+      else this.postToBasket(product);
+    } else this.postToBasket(product);
+  }
+
+  postToBasket(product: IProducts){
+    this.ProductsService.postProductToBasket(product).subscribe( (data) =>
+    // console.log(data));
+    this.basket.push(data)
+    );
+  }
+
+  updateToBasket(product: IProducts){
+    product.quantity += 1;
+    this.ProductsService.updateProductToBasket(product).subscribe((data) => {})
   }
 
 
@@ -82,6 +111,9 @@ export class ProductsComponent implements OnInit {
 
   ngOnDestroy() {
     if (this.productsSubscription) this.productsSubscription.unsubscribe();
+    if (this.basketSubscription) this.basketSubscription.unsubscribe();
+
+
   }
 
 }
