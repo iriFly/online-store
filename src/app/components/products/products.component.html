@@ -2,7 +2,7 @@
   <mat-toolbar color="primary" *ngIf="canEdit">
     <mat-toolbar-row>
       <span class="example-spacer"></span>
-      <button class="button" mat-stroked-button color="basic" (click)="openDialog()">Add this item</button>
+      <button class="button" mat-stroked-button color="basic" (click)="openDialog()">Add new item to Product Catalogue</button>
     </mat-toolbar-row>
   </mat-toolbar>
 
@@ -15,6 +15,14 @@
     <mat-card-actions>
       <button class="button" mat-stroked-button routerLink="">Add to basket</button>
       <button class="button" mat-stroked-button [routerLink]="['/product', product.id]">More details</button>
+
+      <button class="button" mat-stroked-button mat-button [matMenuTriggerFor]="menu">Edit</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="deleteItem(product.id)">Delete</button>
+        <button mat-menu-item>Update</button>
+      </mat-menu>
     </mat-card-actions>
+
   </mat-card>
+
 </div>

@@ -1,1 +1,41 @@
-<p>dialog-box works!</p>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Price</mat-label>
+    <input matInput formControlName="price">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Water</mat-label>
+    <input matInput formControlName="water">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Tonic</mat-label>
+    <input matInput formControlName="tonic">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Humor</mat-label>
+    <input matInput formControlName="humor">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Fun</mat-label>
+    <input matInput formControlName="fun">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Other</mat-label>
+    <input matInput formControlName="other">
+  </mat-form-field>
+
+  <button class="button" mat-stroked-button color="primary" type="submit">Add item</button>
+  <span class="example-spacer"></span>
+  <button class="button" mat-stroked-button color="primary" (click)="onNoClick()">Cancel</button>
+
+</form>

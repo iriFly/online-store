@@ -1,5 +1,6 @@
+import { DialogConfig } from '@angular/cdk/dialog';
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { IProducts } from 'src/app/models/products';
 import { ProductsService } from 'src/app/services/products.service';
@@ -30,8 +31,33 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+
+  deleteItem(id: number){
+    console.log(id);
+    this.ProductsService.deleteProduct(id).subscribe(() => this.products.find((item) => {
+      // (data) => console.log(data));
+      if (id === item.id) {
+        let idx = this.products.findIndex( (data) => data.id === id)
+        this.products.splice(idx, 1);
+      }
+    }));
+  }
+
   openDialog(): void {
-    const dialogRef = this.dialog.open(DialogBoxComponent);
+    let dialogConfig = new MatDialogConfig();
+    dialogConfig.width = '800px';
+    dialogConfig.disableClose = true;
+    const dialogRef = this.dialog.open(DialogBoxComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe((data) => this.postData(data));
+
+  }
+
+  postData(data: IProducts){
+    // console.log(data);
+     // console.log(this.myForm?.value);
+     console.log(data);
+    this.ProductsService.postProduct(data).subscribe((data) => this.products.push(data));
   }
 
   ngOnDestroy() {

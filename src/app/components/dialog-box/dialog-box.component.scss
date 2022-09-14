@@ -1,0 +1,15 @@
+.form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  background-color: bisque;
+  color: rgb(206, 179, 231);
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
