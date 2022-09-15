@@ -15,7 +15,7 @@ export class ProductsComponent implements OnInit {
 
   constructor(private ProductsService: ProductsService, public dialog: MatDialog) { }
 
-  products: IProducts[];
+  products: IProducts[] = [];
   productsSubscription: Subscription;
   basket: IProducts[];
   basketSubscription: Subscription;
@@ -24,16 +24,15 @@ export class ProductsComponent implements OnInit {
   canView: boolean = false;
 
   ngOnInit(): void {
-
-        //user rights verification should be here and if it's ok then
-        this.canEdit = true;
+    //user rights verification should be here and if it's ok then
+    this.canEdit = true;
 
     this.productsSubscription = this.ProductsService.getProducts().subscribe((data) => {
       this.products = data;
     });
 
     this.basketSubscription = this.ProductsService.getProductFromBasket().subscribe((data) => {
-      this.products = data;
+      this.basket = data;
     })
   }
 
@@ -41,11 +40,19 @@ export class ProductsComponent implements OnInit {
     product.quantity = 1;
     let findItem;
 
-    if (this.basket.length > 0) {
+    // if (this.basket?.length > 0) {
       findItem = this.basket.find((item) => item.id === product.id)
+
+      console.log(findItem);
+
       if (findItem) this.updateToBasket(findItem)
       else this.postToBasket(product);
-    } else this.postToBasket(product);
+    // } else {
+    //   console.log('error');
+
+    //   // this.postToBasket(product);
+    // }
+
   }
 
   postToBasket(product: IProducts){

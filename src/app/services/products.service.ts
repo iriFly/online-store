@@ -14,7 +14,6 @@ export class ProductsService {
 
   getProducts(){
     return this.http.get<IProducts[]>(this.url);
-
   }
 
   getProduct(id: number){

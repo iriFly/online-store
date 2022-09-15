@@ -18,6 +18,9 @@ export class ProductDetailsComponent implements OnInit {
 
     this.productSubscription = this.route.data.subscribe ((data) => {
       this.product = data['data'];
+
+      console.log(this.product.ingredients.water);
+
     })
   }
 

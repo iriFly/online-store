@@ -9,6 +9,7 @@
     <input matInput formControlName="price">
   </mat-form-field>
 
+  <div formGroupName="ingredients">
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Water</mat-label>
     <input matInput formControlName="water">
@@ -33,8 +34,9 @@
     <mat-label>Other</mat-label>
     <input matInput formControlName="other">
   </mat-form-field>
+</div>
 
-  <button class="button" mat-stroked-button color="primary" type="submit">
+  <button class="button" mat-stroked-button color="primary" type="submit" [disabled]="!myForm.valid" >
     {{isNew ? 'Add item' : 'Update'}}</button>
   <span class="example-spacer"></span>
   <button class="button" mat-stroked-button color="primary" (click)="onNoClick()" type="button">Cancel</button>

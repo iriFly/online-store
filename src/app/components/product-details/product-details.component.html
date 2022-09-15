@@ -5,7 +5,8 @@
     <img class="image" mat-card-image src="{{product.image}}"/>
       <mat-card-content>
         <p>Details about the product: </p>
-        <p>Price:  {{product.price | currency: "EUR"}}</p>
+        <!-- <p>Price:  {{product.price | currency: "EUR"}}</p> -->
+        <p>Price:  {{product.price}}</p>
         <p>Ingredients:  </p>
         <p>Water:  {{product.ingredients.water}}</p>
         <p>Tonic:  {{product.ingredients.tonic}}</p>
